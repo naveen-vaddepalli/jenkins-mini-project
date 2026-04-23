@@ -3,107 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NexusShop Modern UI</title>
+<title>NexusShop Premium UI</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-    --bg:#f4f7fb;
-    --primary:#0f172a;
-    --accent:#6366f1;
-    --accent2:#22d3ee;
-    --muted:#64748b;
+    --bg:#0f172a;
+    --card:#1e293b;
+    --primary:#f59e0b;
+    --secondary:#fb7185;
+    --text:#f1f5f9;
+    --muted:#94a3b8;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
-body{background:var(--bg);}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter, sans-serif;
+}
 
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* HEADER */
 header{
     position:sticky;
     top:0;
     backdrop-filter:blur(10px);
-    background:rgba(255,255,255,0.7);
-    padding:15px 40px;
+    background:rgba(15,23,42,0.7);
+    padding:15px 50px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
-.logo{font-size:22px;font-weight:700;}
-.logo span{color:var(--accent);}
+.logo{
+    font-size:24px;
+    font-weight:700;
+}
+
+.logo span{
+    color:var(--primary);
+}
 
 nav a{
-    margin:0 10px;
+    margin-left:25px;
     text-decoration:none;
-    color:var(--primary);
-    font-weight:500;
+    color:var(--text);
+    position:relative;
 }
 
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    left:0;
+    bottom:-6px;
+    background:var(--secondary);
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* HERO */
 .hero{
-    height:400px;
+    height:420px;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    color:white;
     text-align:center;
-    background:linear-gradient(135deg,#6366f1,#22d3ee);
+    background:radial-gradient(circle at top,#1e293b,#0f172a);
 }
 
-.hero h1{font-size:42px;}
-.hero p{margin:10px 0;}
+.hero h1{
+    font-size:50px;
+    font-weight:700;
+}
 
+.hero p{
+    margin:15px 0;
+    color:var(--muted);
+}
+
+/* BUTTON */
 .btn{
-    padding:10px 20px;
+    padding:12px 28px;
     border:none;
-    border-radius:20px;
+    border-radius:30px;
     cursor:pointer;
-    background:linear-gradient(135deg,var(--accent),var(--accent2));
-    color:white;
-    margin-top:10px;
+    font-weight:600;
+    color:#000;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    transition:0.3s;
 }
 
-.container{padding:40px;}
+.btn:hover{
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
 
+/* CONTAINER */
+.container{
+    padding:60px 50px;
+}
+
+.container h2{
+    margin-bottom:30px;
+}
+
+/* GRID */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
 }
 
+/* CARD */
 .card{
-    background:white;
-    border-radius:15px;
+    background:rgba(255,255,255,0.05);
+    border-radius:20px;
     overflow:hidden;
+    backdrop-filter:blur(12px);
     transition:0.3s;
+    border:1px solid rgba(255,255,255,0.08);
 }
 
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 20px 40px rgba(0,0,0,0.1);
+    box-shadow:0 20px 50px rgba(0,0,0,0.6);
 }
 
 .card img{
     width:100%;
     height:200px;
     object-fit:cover;
+    transition:0.4s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
 }
 
 .card-body{
-    padding:15px;
+    padding:18px;
+}
+
+.card-body h4{
+    margin-bottom:10px;
 }
 
 .price{
-    color:var(--accent);
+    color:var(--primary);
     font-weight:700;
+    margin-bottom:12px;
 }
 
+/* FOOTER */
 footer{
     text-align:center;
-    padding:20px;
-    background:#0f172a;
-    color:white;
+    padding:25px;
+    background:#020617;
+    color:var(--muted);
 }
 </style>
 </head>
@@ -120,15 +189,16 @@ footer{
 </header>
 
 <section class="hero">
-    <h1>Modern Shopping UI</h1>
-    <p>Premium collections just for you</p>
-    <button class="btn">Shop Now</button>
+    <h1>Luxury Shopping Experience</h1>
+    <p>Minimal. Elegant. Premium.</p>
+    <button class="btn">Start Shopping</button>
 </section>
 
 <div class="container">
-    <h2>Trending Products</h2>
+    <h2>Featured Collection</h2>
 
     <div class="grid">
+
         <div class="card">
             <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb">
             <div class="card-body">
@@ -164,11 +234,12 @@ footer{
                 <button class="btn">Add to Cart</button>
             </div>
         </div>
+
     </div>
 </div>
 
 <footer>
-    © 2026 NexusShop
+    © 2026 NexusShop — Premium UI
 </footer>
 
 </body>
